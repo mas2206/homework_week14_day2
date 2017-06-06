@@ -5,6 +5,6 @@ import SongContainer from "./containers/SongContainer.jsx";
 window.onload = function() {
   ReactDOM.render(
     <SongContainer />,
-    document.getElementById("app");
+    document.getElementById("app")
   );
 };
