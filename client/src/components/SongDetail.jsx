@@ -7,8 +7,8 @@ class SongDetail extends React.Component {
 
     return (
       <div className="song-details">
-        <p>Title: {this.props.song.im:name.label}</p>
-        <p>Artist: {this.props.song.im:artist.label}</p>
+        <p>Title: {this.props.song["im:name"].label}</p>
+        <p>Artist: {this.props.song["im:artist"].label}</p>
       </div>
     )
   }

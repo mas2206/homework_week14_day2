@@ -22052,6 +22052,18 @@ var _react = __webpack_require__(81);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _SongDetail = __webpack_require__(184);
+
+var _SongDetail2 = _interopRequireDefault(_SongDetail);
+
+var _SongSelector = __webpack_require__(185);
+
+var _SongSelector2 = _interopRequireDefault(_SongSelector);
+
+var _GenreSelector = __webpack_require__(183);
+
+var _GenreSelector2 = _interopRequireDefault(_GenreSelector);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22070,6 +22082,13 @@ var SongContainer = function (_React$Component) {
 
     _this.state = {
       songs: [],
+      genres: [{
+        genre: "Pop",
+        number: "14"
+      }, {
+        genre: "Hip-Hop/Rap",
+        number: "18"
+      }],
       selectedSong: null
     };
     _this.setSelectedSong = _this.setSelectedSong.bind(_this);
@@ -22088,9 +22107,9 @@ var SongContainer = function (_React$Component) {
           null,
           "iTunes Top 10 songs by genre"
         ),
-        _react2.default.createElement(GenreSelector, null),
-        _react2.default.createElement(SongSelector, null),
-        _react2.default.createElement(SongDetail, null)
+        _react2.default.createElement(_GenreSelector2.default, null),
+        _react2.default.createElement(_SongSelector2.default, null),
+        _react2.default.createElement(_SongDetail2.default, null)
       );
     }
   }, {
@@ -22127,6 +22146,211 @@ var SongContainer = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = SongContainer;
+
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(81);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var GenreSelector = function (_React$Component) {
+  _inherits(GenreSelector, _React$Component);
+
+  function GenreSelector(props) {
+    _classCallCheck(this, GenreSelector);
+
+    var _this = _possibleConstructorReturn(this, (GenreSelector.__proto__ || Object.getPrototypeOf(GenreSelector)).call(this, props));
+
+    _this.state = {
+      selectedIndex: ""
+    };
+    _this.handleChange = _this.handleChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(GenreSelector, [{
+    key: "render",
+    value: function render() {
+      var options = this.props.genres.map(function (genre, index) {
+        return _react2.default.createElement(
+          "option",
+          { value: index, key: index },
+          genre
+        );
+      });
+      return _react2.default.createElement(
+        "select",
+        { id: "genres", onChange: this.handleChange, value: this.state.selectedIndex },
+        options
+      );
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(event) {
+      var index = event.target.value;
+      this.setState({ selectedIndex: index });
+      var genre = this.props.genres[index];
+      this.props.onSelectGenre(genre);
+    }
+  }]);
+
+  return GenreSelector;
+}(_react2.default.Component);
+
+exports.default = GenreSelector;
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(81);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SongDetail = function (_React$Component) {
+  _inherits(SongDetail, _React$Component);
+
+  function SongDetail() {
+    _classCallCheck(this, SongDetail);
+
+    return _possibleConstructorReturn(this, (SongDetail.__proto__ || Object.getPrototypeOf(SongDetail)).apply(this, arguments));
+  }
+
+  _createClass(SongDetail, [{
+    key: "render",
+    value: function render() {
+      if (this.props.song === null) return null;
+
+      return _react2.default.createElement(
+        "div",
+        { className: "song-details" },
+        _react2.default.createElement(
+          "p",
+          null,
+          "Title: ",
+          this.props.song["im:name"].label
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Artist: ",
+          this.props.song["im:artist"].label
+        )
+      );
+    }
+  }]);
+
+  return SongDetail;
+}(_react2.default.Component);
+
+exports.default = SongDetail;
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(81);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SongSelector = function (_React$Component) {
+  _inherits(SongSelector, _React$Component);
+
+  function SongSelector(props) {
+    _classCallCheck(this, SongSelector);
+
+    var _this = _possibleConstructorReturn(this, (SongSelector.__proto__ || Object.getPrototypeOf(SongSelector)).call(this, props));
+
+    _this.state = {
+      selectedIndex: ""
+    };
+    _this.handleChange = _this.handleChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(SongSelector, [{
+    key: "render",
+    value: function render() {
+      var options = this.props.songs.map(function (song, index) {
+        return _react2.default.createElement(
+          "option",
+          { value: index, key: index },
+          "song[\"im:name\"].label"
+        );
+      });
+      return _react2.default.createElement(
+        "select",
+        { id: "songs", onChange: this.handleChange, value: this.state.selectedIndex },
+        options
+      );
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(event) {
+      var index = event.target.value;
+      this.setState({ selectedIndex: index });
+      var song = this.props.songs[index];
+      this.props.onSelectSong(song);
+    }
+  }]);
+
+  return SongSelector;
+}(_react2.default.Component);
+
+exports.default = SongSelector;
 
 /***/ })
 /******/ ]);

@@ -5,14 +5,14 @@ class SongSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedIndex = ""
+      selectedIndex: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   render() {
     const options = this.props.songs.map((song, index) =>  {
-      return <option value={index} key={index}>song.im:name.label</option>
+      return <option value={index} key={index}>song["im:name"].label</option>
     })
     return (
       <select id="songs" onChange={this.handleChange} value={this.state.selectedIndex}>

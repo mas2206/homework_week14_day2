@@ -1,4 +1,7 @@
 import React from "react";
+import SongDetail from "../components/SongDetail.jsx";
+import SongSelector from "../components/SongSelector.jsx";
+import GenreSelector from "../components/GenreSelector.jsx";
 
 class SongContainer extends React.Component {
 
@@ -6,6 +9,16 @@ class SongContainer extends React.Component {
     super(props);
     this.state = {
       songs: [],
+      genres: [
+        {
+          genre: "Pop",
+          number: "14"
+        },
+        {
+          genre: "Hip-Hop/Rap",
+          number: "18"
+        }
+      ],
       selectedSong: null
     };
     this.setSelectedSong = this.setSelectedSong.bind(this);
